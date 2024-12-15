@@ -1,0 +1,396 @@
+/* styles.css */
+:root {
+    --color-primary: #f59e0b;
+    --color-dark: #0f172a;
+    --color-darker: #020617;
+    --color-light: #f8fafc;
+    --color-gray: #94a3b8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: var(--color-darker);
+    color: var(--color-light);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Floating Contact Buttons */
+.floating-contacts {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 100;
+}
+
+.floating-contacts a {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.call-btn {
+    background: #3b82f6;
+    position: relative;
+}
+
+.floating-contacts a:hover {
+    transform: scale(1.1);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), var(--color-darker));
+}
+
+.hero-content {
+    position: relative;
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, var(--color-primary), #fbbf24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero .subtitle {
+    font-size: 1.5rem;
+    color: var(--color-light);
+    margin-bottom: 1rem;
+}
+
+.hero .description {
+    color: var(--color-gray);
+    margin-bottom: 2rem;
+}
+.cta-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit text color */
+    display: block; /* Ensure it covers the entire button */
+}
+
+
+
+.cta-button {
+    background: linear-gradient(to right, var(--color-primary), #fbbf24);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+    text-align: center; /* Center-align button content */
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+}
+
+/* USP Section */
+.usp {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, var(--color-darker), var(--color-dark));
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.pattern-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: url('/api/placeholder/400/400');
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.usp h2, .portfolio h2, .contact h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+.usp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.usp-card {
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+/* Styling all icons (Font Awesome and custom symbols) */
+.usp-card i {
+    font-size: 3rem; /* Same size for consistency */
+    color: var(--color-primary); /* Same color for consistency */
+    margin-bottom: 1rem; /* Aligns visually with text */
+    display: inline-block; /* Ensures proper alignment */
+    font-style: normal; /* For custom symbols like ₹ */
+    line-height: 1; /* Vertical alignment */
+}
+
+/* Special handling for rupee symbol if needed */
+.usp-card i.icon {
+    font-family: Arial, sans-serif; /* Use clean font for ₹ */
+}
+
+
+/* Portfolio Section */
+.portfolio {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, var(--color-dark), var(--color-darker));
+    padding: 4rem 0;
+    position: relative;
+}
+
+.portfolio-slider {
+    position: relative;
+    padding: 0 3rem;
+}
+
+.portfolio-track {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding: 1rem 0;
+}
+
+.portfolio-track::-webkit-scrollbar {
+    display: none;
+}
+
+.portfolio-card {
+    flex: 0 0 320px;
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.portfolio-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.portfolio-card-content {
+    padding: 1.5rem;
+}
+
+.portfolio-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-card .location {
+    color: var(--color-gray);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.stars {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.testimonial {
+    color: var(--color-gray);
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(30, 41, 59, 0.8);
+    color: white;
+    border: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
+.slider-btn:hover {
+    background: rgba(30, 41, 59, 1);
+}
+
+/* Contact Section */
+.contact {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, var(--color-darker), var(--color-dark));
+    padding: 4rem 0;
+    position: relative;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.contact-item i {
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    margin-top: 0.25rem;
+}
+
+.contact-item h3 {
+    margin-bottom: 0.5rem;
+}
+
+.factory-visit {
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 200px;
+    background: rgba(30, 41, 59, 0.8);
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+}
+.call-tooltip {
+    position: absolute;
+    top: 50%; /* Center vertically relative to the call button */
+    left: 110%; /* Slightly to the right of the call button */
+    transform: translateY(-50%);
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 0.875rem; /* Smaller font size */
+    white-space: nowrap;
+    display: none; /* Initially hidden */
+    z-index: 100;
+}
+
+.phone-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 2rem 3rem;
+    border-radius: 0.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1000; /* Ensure it appears above other elements */
+    display: none; /* Initially hidden */
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+/* Phone number text styling */
+.phone-text {
+    position: absolute;
+    top: 50%; /* Vertically align with the button */
+    left: -250%; /* Adjust left property to reduce the space */
+    transform: translate(-10%, -50%); /* Adjust horizontal alignment */
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+    white-space: nowrap;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1000;
+}
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .usp-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
